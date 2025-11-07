@@ -1,0 +1,122 @@
+<CalculadoraBox>:
+    orientation: "vertical"
+    padding: 15
+    spacing: 30
+
+    TextInput:
+        id: entrada
+        multiline: False #funcion para que los datos no se pasen hacia 
+        font_size: 50
+        readonly: True #evita escribir
+        halign: "right" #alinea el texto a la derecha
+        background_color: (1,1,1,1)
+        foreground_color: (0, 0, 0, 1)
+        size_hint_y: 0.45
+
+
+
+    BoxLayout:
+        spacing: 15 #separación entre botones
+        size_hint_y:0.3 #alto (y)
+   
+        GreenButton:
+            text: "CE"
+            on_press: root.limpiar_todo()
+            size_hint_x:1 #largo (x)
+
+
+        GreenButton:
+            text: "C"
+            on_press: root.borrar_uno()
+            size_hint_x:0.3 #largo (x)
+ 
+        GreenButton:
+            text: "*"
+            on_press: root.agregar(self.text)
+            size_hint_x:0.3 #largo
+
+
+    GridLayout:
+        cols: 4
+        spacing: 15
+        padding: 2
+
+        GreenButton:
+            text: "7"
+            on_press: root.agregar(self.text)
+
+        GreenButton:
+            text: "8"
+            on_press: root.agregar(self.text)
+            
+
+        GreenButton:
+            text: "9"
+            on_press: root.agregar(self.text)
+
+        GreenButton:
+            text: "-"
+            on_press: root.agregar(self.text)
+
+ 
+        GreenButton:
+            text: "4"
+            on_press: root.agregar(self.text)
+
+        GreenButton:
+            text: "5"
+            on_press: root.agregar(self.text)
+
+        GreenButton:
+            text: "6"
+            on_press: root.agregar(self.text)
+
+        GreenButton:
+            text: "+"
+            on_press: root.agregar(self.text)
+
+ 
+        GreenButton:
+            text: "1"
+            on_press: root.agregar(self.text)
+
+        GreenButton:
+            text: "2"
+            on_press: root.agregar(self.text)
+
+        GreenButton:
+            text: "3"
+            on_press: root.agregar(self.text)
+
+        GreenButton:
+            text: "/"
+            on_press: root.agregar("/")
+        
+    BoxLayout:
+        spacing: 18
+        size_hint_y: 0.3 #alto (y)
+
+
+        GreenButton:
+            text: "0"
+            on_press: root.agregar(self.text)
+            size_hint_x:0.2 #largo (x)
+
+        GreenButton:
+            text: "="
+            on_press: root.igual()
+            size_hint_x:1 
+
+
+<GreenButton@Button>:
+    font_size: 22
+    color: (1, 1, 1, 1)
+    background_normal: ''
+    background_color: (0, 0, 0, 0)
+    canvas.before:
+        Color:
+            rgba: (0/255, 150/255, 0/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [10]
